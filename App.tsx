@@ -1,5 +1,6 @@
 import React, { useState, VFC } from 'react'
-import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
+import registerRootComponent from 'expo/build/launch/registerRootComponent'
 
 const styles = StyleSheet.create({
   container: {
@@ -43,3 +44,5 @@ const App: VFC = () => {
 }
 
 export default App
+
+registerRootComponent(App)
