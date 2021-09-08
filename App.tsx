@@ -1,31 +1,45 @@
-import React, { VFC } from 'react';
-import { Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-
+import React, { useState, VFC } from 'react'
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    flex: 1,
+    justifyContent: 'center',
   },
-});
+  buttonContainer: {
+    margin: 20,
+    backgroundColor: '#ff0000',
+  },
+  alternativeLayoutButtonContainer: {
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+})
 
 const App: VFC = () => {
+  const [counter, setCounter] = useState(0)
   return (
-      <ScrollView style={styles.container}>
-        <Text>Some text</Text>
-        <View>
-          <Text>Some more text</Text>
-          <Image source={{ uri: "https://reactnative.dev/docs/assets/p_cat2.png"}} style={{ width: 200, height: 200 }} />
-        </View>
-        <TextInput
-          style={{
-            height: 80,
-            borderColor: "green",
-            borderWidth: 1,
-          }}
-          />
-      </ScrollView>
-  );
+    <View style={styles.container}>
+      <View
+        style={{
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        <Text style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+          Count {counter}
+        </Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          color="#ffffff"
+          onPress={() => setCounter((c) => c + 1)}
+          title="Press Me"
+        />
+      </View>
+    </View>
+  )
 }
-
 
 export default App
