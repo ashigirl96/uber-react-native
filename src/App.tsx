@@ -36,7 +36,7 @@ const App: VFC = () => {
         <Button
           color="#ffffff"
           onPress={() => setCounter((c) => c + 1)}
-          title="Press Me"
+          title="Press"
         />
       </View>
     </View>
