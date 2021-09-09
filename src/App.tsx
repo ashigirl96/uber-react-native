@@ -1,9 +1,8 @@
 import React, { useState, VFC } from 'react'
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import registerRootComponent from 'expo/build/launch/registerRootComponent'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import { store } from './store'
-import { useDispatch, useSelector } from './hooks'
 import { setOrigin } from './slices/navSlice'
 
 const styles = StyleSheet.create({
