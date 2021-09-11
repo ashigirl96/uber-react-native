@@ -1,21 +1,25 @@
 import React, { VFC } from 'react'
-import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
+import { Image, SafeAreaView, Text, TextInput, View } from 'react-native'
+import { useDispatch } from 'react-redux'
 import { setOrigin } from '../slices/navSlice'
-
-const styles = StyleSheet.create({
-  text: {
-    color: 'blue',
-  },
-})
+import tw from 'tailwind-react-native-classnames'
+import { NavOptions } from '../Components/NavOptions'
 
 export const HomeScreen: VFC = () => {
   const dispatch = useDispatch()
-  const origin = useSelector((state) => state.nav.origin)
 
   return (
-    <SafeAreaView>
-      <Text style={styles.text}>Hello</Text>
+    <SafeAreaView style={tw`h-full`}>
+      <Text style={tw`text-red-500 p-10`}>Hello</Text>
+      <Image
+        style={tw`rounded-3xl`}
+        width={100}
+        height={100}
+        resizeMode={'contain'}
+        source={{
+          uri: 'https://yt3.ggpht.com/Qj-lyidMW6xtEdnv6rDYscGE1kO6K06-i4v8Eiij96YOTo_WdBboLVlEKeE3749ywpyqTec2=s176-c-k-c0x00ffffff-no-rj',
+        }}
+      />
       <View>
         <TextInput
           onChange={(e) => {
@@ -23,8 +27,8 @@ export const HomeScreen: VFC = () => {
             dispatch(setOrigin(value))
           }}
         />
-        <Text>I'm building Uber. {origin}</Text>
       </View>
+      <NavOptions />
     </SafeAreaView>
   )
 }
