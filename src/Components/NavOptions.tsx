@@ -2,6 +2,7 @@ import React, { VFC } from 'react'
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import tw from 'tailwind-react-native-classnames'
+import { Icon } from 'react-native-elements'
 
 const data = [
   {
@@ -40,6 +41,12 @@ export const NavOptions: VFC = () => {
                 }}
               />
               <Text style={tw`mt-2 text-lg font-semibold`}>{item.title}</Text>
+              <Icon
+                style={tw`p-2 bg-black rounded-full w-10 mt-4`}
+                name="arrow-right"
+                color="white"
+                type="awesome-font-5"
+              />
             </View>
           </TouchableOpacity>
         )}
