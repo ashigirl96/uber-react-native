@@ -3,6 +3,7 @@ import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import tw from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'
+
 import { useNavigation } from '@react-navigation/native'
 
 const data = [
@@ -22,6 +23,21 @@ const data = [
   },
 ]
 
+const places = [
+  {
+    id: '123',
+    place: 'Home',
+  },
+  {
+    id: '234',
+    place: 'Work',
+  },
+  {
+    id: '235',
+    place: 'Toilet',
+  },
+]
+
 export const NavOptions: VFC = () => {
   // const origin = useSelector((state) => state.nav.origin)
   const navigation = useNavigation()
@@ -38,8 +54,6 @@ export const NavOptions: VFC = () => {
           >
             <View>
               <Image
-                // width={120}
-                // height={120}
                 style={{ width: 120, height: 120, resizeMode: 'contain' }}
                 source={{
                   uri: item.image,
@@ -53,6 +67,22 @@ export const NavOptions: VFC = () => {
                 type="awesome-font-5"
               />
             </View>
+          </TouchableOpacity>
+        )}
+      />
+
+      <FlatList
+        data={places}
+        ItemSeparatorComponent={() => <View style={tw`bg-gray-200 h-0.5`} />}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={tw`flex-row items-center p-5`}>
+            <Icon
+              name={'home'}
+              size={18}
+              style={tw`mr-4 rounded-full bg-gray-300 p-3`}
+            />
+            <Text>{item.place}</Text>
           </TouchableOpacity>
         )}
       />

@@ -6,6 +6,7 @@ import { HomeScreen, MapScreen } from './Screens'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { KeyboardAvoidingView, Platform } from 'react-native'
 
 const Stack = createNativeStackNavigator()
 
@@ -19,23 +20,29 @@ const App: VFC = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Provider store={store}>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{
-                headerShown: false, // ヘッダがなくなる
-              }}
-            />
-            <Stack.Screen
-              name="MapScreen"
-              component={MapScreen}
-              options={{
-                headerShown: false, // ヘッダがなくなる
-              }}
-            />
-            {/*<Stack.Screen name="Home" component={MapScreen} />*/}
-          </Stack.Navigator>
+          <KeyboardAvoidingView // 上にびよーんってなる
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? -1 : 0}
+          >
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{
+                  headerShown: false, // ヘッダがなくなる
+                }}
+              />
+              <Stack.Screen
+                name="MapScreen"
+                component={MapScreen}
+                options={{
+                  headerShown: false, // ヘッダがなくなる
+                }}
+              />
+              {/*<Stack.Screen name="Home" component={MapScreen} />*/}
+            </Stack.Navigator>
+          </KeyboardAvoidingView>
         </Provider>
       </NavigationContainer>
     </SafeAreaProvider>
