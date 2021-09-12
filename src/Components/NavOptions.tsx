@@ -16,7 +16,7 @@ const data = [
     id: '456',
     title: 'Order food',
     image:
-      'https://yt3.ggpht.com/vzL8yY1FFmDm4G2veuiiJNyA6Ssp44-fU24rSbH6tl_h0crwMjeZzmsVF-FJEnfT9zRzHGiPqQ=s176-c-k-c0x00ffffff-no-rj',
+      'https://yt3.ggpht.com/Qj-lyidMW6xtEdnv6rDYscGE1kO6K06-i4v8Eiij96YOTo_WdBboLVlEKeE3749ywpyqTec2=s176-c-k-c0x00ffffff-no-rj',
     screen: 'EatsScreen',
   },
 ]

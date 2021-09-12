@@ -4,13 +4,16 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import { HomeScreen } from './Screens/HomeScreen'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { NavigationContainer } from '@react-navigation/native'
 
 const App: VFC = () => {
   return (
     <SafeAreaProvider>
-      <Provider store={store}>
-        <HomeScreen />
-      </Provider>
+      <NavigationContainer>
+        <Provider store={store}>
+          <HomeScreen />
+        </Provider>
+      </NavigationContainer>
     </SafeAreaProvider>
   )
 }
