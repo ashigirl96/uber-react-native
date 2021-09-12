@@ -1,10 +1,13 @@
 import React, { VFC } from 'react'
-import { View } from 'react-native'
+import { SafeAreaView, Text, View } from 'react-native'
+import tw from 'tailwind-react-native-classnames'
 
 export const MapScreen: VFC = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-    </View>
+    <SafeAreaView style={tw`h-full`}>
+      <View>
+        <Text>Hello</Text>
+      </View>
+    </SafeAreaView>
   )
 }

@@ -1,5 +1,5 @@
 import React, { VFC } from 'react'
-import { Image, SafeAreaView, Text, TextInput, View } from 'react-native'
+import { Image, SafeAreaView, TextInput, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { setOrigin } from '../slices/navSlice'
 import tw from 'tailwind-react-native-classnames'
